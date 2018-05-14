@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'bm-nav',
   templateUrl: './bm-nav.component.html',
-  styleUrls: ['./bm-nav.component.css']
+  styleUrls: ['./bm-nav.component.scss']
 })
 export class BmNavComponent {
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);

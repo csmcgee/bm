@@ -1,21 +1,29 @@
 <div class="">
   <h1>Complain!</h1>
-  <form>
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" required>
+  <form [formGroup]="pictureForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field>
+        <input matInput type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+      </mat-form-field>
     </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="textarea" class="form-control" id="description" required>
-    </div>
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="file" accept="image/*" name="pictures">
+    <div>
+      <mat-form-field>
+        <input matInput type="textarea" class="form-control" id="description" placeholder="Description" formControlName="description">
+      </mat-form-field>
     </div>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-success form-control">Submit</button>
+    <div>
+      <input type="file" accept="image/*" multiple name="pictures" id="pictures" (change)="handleFileInput($event.target.files)">
+      <label for="pictures" class="mat-button mat-raised-button mat-accent">Upload Pictures</label>
+      <div *ngFor="let image of pictures; let i=index">
+        <div>{{ i }}: {{ image.name }}
+          <img src="{{image.name}}"/>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">Send</button>
     </div>
 
   </form>
