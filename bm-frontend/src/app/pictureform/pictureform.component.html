@@ -13,7 +13,7 @@
     </div>
 
     <div>
-      <input type="file" accept="image/*" multiple name="pictures" id="pictures" (change)="handleFileInput($event.target.files)">
+      <input type="file" accept="image/*" multiple name="image" id="image" (change)="handleFileInput($event.target.files)">
       <label for="pictures" class="mat-button mat-raised-button mat-accent">Upload Pictures</label>
       <div *ngFor="let image of pictures; let i=index">
         <div>{{ i }}: {{ image.name }}
